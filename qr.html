@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .container {
+            display: flex;
+            background-color: blueviolet;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            flex-direction: column;
+        }
+        
+
+        .box {
+            background-color: white;
+            padding: 50px 100px;
+            text-align: center;
+            border: 5px solid black;
+            border-radius: 20px;
+        }
+
+        p {
+            font-size: 200%;
+        }
+
+        input {
+            height: 50px;
+            width: 250px;
+            border-radius: 10px;
+        }
+
+        button {
+            background-color: wheat;
+            height: 50px;
+            width: 250px;
+            border-radius: 20px;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background-color: palevioletred;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="input">
+                <p>QR Code generate</p>
+                <input type="text" id="inputtext" placeholder="Enter URL"><br><br>
+                <button onclick="generate()">generate QR</button>
+            
+             <div class="qr">
+                <div class="img">
+                <img src="" id="imgqr"><br><br>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    //string concatination
+    let inputtext = document.getElementById("inputtext");
+    let img=document.getElementById("imgqr");
+
+    function generate(){
+        imgqr.src= 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+inputtext.value;
+     
+    }
+    </script>
+</body>
+</html>
